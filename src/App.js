@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import ListCar from "./pages/ListCar/ListCar";
+import DetailCar from "./pages/DetailCar/DetailCar";
+import Rental from "./pages/Rental/Rental";
+import AddCar from "./pages/AddCar/AddCar";
+import Invoice from "./pages/Invoice/Invoice";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return(
+    <>
+      <Routes>
+        <Route path="/">
+        <Route index element={<Rental />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="listcar" element={<ListCar />} />
+            <Route path="add_car" element={<AddCar />} />
+            <Route path="detail/:id" element={<DetailCar />} />
+            <Route path= "invoice" element={<Invoice />} />
+            <Route path="Rental" element={<Rental />} />
+        </Route>
+      </Routes>
+    </>
+  )
 }
-
 export default App;
